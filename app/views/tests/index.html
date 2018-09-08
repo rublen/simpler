@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index | Simpler Application</title>
+  </head>
+  <body>
+    <h1>Simpler frameworc in action!</h1>
+    <ul>
+      <%= @tests.each { |t| "#{t.title} (#{t.level})" } %>
+    </ul>
+    <p><%= @time %></p>
+  </body>
+</html>
