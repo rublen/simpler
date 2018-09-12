@@ -28,9 +28,12 @@ module Simpler
 
     def call(env)
       route = @router.route_for(env)
+      env['simpler.route_params'] = route.params
       controller = route.controller.new(env)
       action = route.action
-
+    rescue NoMethodError => e
+      not_found_response(e)
+    else
       make_response(controller, action)
     end
 
@@ -52,6 +55,10 @@ module Simpler
 
     def make_response(controller, action)
       controller.make_response(action)
+    end
+
+    def not_found_response(e)
+      [404, { 'Content-Type' => 'text/plain' }, ['Not Found', e.message, e.backtrace]]
     end
 
   end

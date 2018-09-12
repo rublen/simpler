@@ -1,0 +1,10 @@
+I, [2018-09-12T10:52:42.499164 #49134]  INFO -- : Request: GET /tests
+Handler: TestsController#index
+Parameters: {}
+Response: 201 text/plain tests/list.html.erb
+
+I, [2018-09-12T10:52:56.336857 #49134]  INFO -- : Request: GET /tests/1
+Handler: TestsController#show
+Parameters: {:id=>"1"}
+Response: 200 text/html 
+
